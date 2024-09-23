@@ -22,8 +22,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      apiBase: 'http://127.0.0.1:8000/api' ,// Replace with your actual API base URL
-      imageBase: 'http://127.0.0.1:8000'
+      apiBase: 'https://event.findthexpo.com/api' ,// Replace with your actual API base URL
+      imageBase: 'https://event.findthexpo.com/'
     }
   },
 
