@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+
+  functions = ".netlify/functions" # Netlify Functions directory for SSR
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/server"
+  status = 200
+

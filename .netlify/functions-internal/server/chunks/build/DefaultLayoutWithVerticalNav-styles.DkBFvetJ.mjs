@@ -1,0 +1,5 @@
+import { D as DefaultLayoutWithVerticalNav_vue_vue_type_style_index_0_scoped_ee520e18_lang } from './DefaultLayoutWithVerticalNav-styles-1.mjs-C_fQQBmp.mjs';
+
+const DefaultLayoutWithVerticalNavStyles_DkBFvetJ = [DefaultLayoutWithVerticalNav_vue_vue_type_style_index_0_scoped_ee520e18_lang, DefaultLayoutWithVerticalNav_vue_vue_type_style_index_0_scoped_ee520e18_lang];
+
+export { DefaultLayoutWithVerticalNavStyles_DkBFvetJ as default };
