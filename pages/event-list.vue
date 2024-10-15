@@ -39,7 +39,15 @@
               </template>
 
             
-
+                 <template v-slot:item.featured="{ item }">
+                  <VCheckbox
+                    :model-value="item.featured === 1" 
+                    @click="toggleFeaturedStatus(item)"                 
+                    hide-details
+                    density="compact"
+                    color="primary"
+                  ></VCheckbox>
+                   </template>
           
                 <!-- <template v-slot:item.event_date_from="{ item }">
                   {{ item.event_date_from }}
@@ -135,6 +143,8 @@ const search = ref('');
 const headers = [
   { title: 'Title', value: 'title' },
   { title: 'Slug', value: 'slug' },
+  { title: 'Featured', value: 'featured' }, // Add this line
+
   // { title: 'Date', value: 'event_date_from' },
   { title: 'Status', value: 'status' },
   { title: 'Actions', value: 'actions', sortable: false },
@@ -176,10 +186,19 @@ const updateStatus = async (status) => {
     }
   }
 };
+const toggleFeaturedStatus = async (event) => {
+  try {
+    const updatedStatus = event.featured ? false : true; // Toggle the featured status
+    await eventService.updateEventStatus(event.id, { featured: updatedStatus });
+    fetchEvents(); // Refresh the list after the update
+  } catch (error) {
+    console.error('Error updating featured status:', error);
+  }
+};
 const updateSlug = async () => {
   if (currentEvent.value && newSlug.value) {
     try {
-      await eventService.updateEventStatusSlug(currentEvent.value.id, { slug: newSlug.value });
+      await eventService.updateEventSlug(currentEvent.value.id, { slug: newSlug.value });
       fetchEvents(); // Refresh the events list after updating
       slugDialog.value = false; // Close the dialog
     } catch (error) {
