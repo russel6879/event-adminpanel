@@ -23,7 +23,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiBase: 'https://event.findthexpo.com/api' ,// Replace with your actual API base URL
-      imageBase: 'https://event.findthexpo.com/'
+      imageBase: 'https://event.findthexpo.com'
     }
   },
 

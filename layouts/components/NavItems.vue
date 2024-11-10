@@ -201,6 +201,13 @@ const websiteSetupSubmenu = [
       to: '/event-list',
     }"
   />
+  <VerticalNavLink
+    :item="{
+      title: 'News & Articles',
+      icon: 'ri-news-line',
+      to: '/blog',
+    }"
+  />
 
     <!-- Website Setup with Submenu -->
   <VerticalNavGroup
