@@ -264,7 +264,7 @@ const socialLinks = ref({
   youtube: '',
   linkedin: ''
 });
-const baseURL= `${$config.public.imageBase}/`;
+const baseURL= `${$config.public.imageBase}`;
 
 // Utility function to read files as Base64
 const handleLogoChange = (event) => {

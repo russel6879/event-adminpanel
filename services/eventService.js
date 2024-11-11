@@ -70,6 +70,32 @@ const eventService = {
       throw error;
     }
   },
+  async getExpiredEvents() {
+    const { $toast } = useNuxtApp();
+    const apiClient = createApiClient();
+
+    try {
+      const token = localStorage.getItem('admin_token');
+      if (!token) {
+        throw new Error('No token found');
+      }
+
+      const response = await apiClient.get('/admin/expired-events', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (response.status !== 200) {
+        throw new Error('Failed to fetch events');
+      }
+
+      return response.data;
+    } catch (error) {
+      $toast.error('Failed to fetch events');
+      throw error;
+    }
+  },
   async getVenuesByCountry(countryId) {
     const apiClient = createApiClient();
     try {

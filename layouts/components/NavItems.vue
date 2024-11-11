@@ -2,6 +2,18 @@
 import VerticalNavSectionTitle from '@/@layouts/components/VerticalNavSectionTitle.vue'
 import VerticalNavGroup from '@layouts/components/VerticalNavGroup.vue'
 import VerticalNavLink from '@layouts/components/VerticalNavLink.vue'
+const EventSubmenu = [
+  {
+    title: 'Event List',
+    to: '/event-list',
+    icon: 'ri-file-list-line',
+  },
+  {
+    title: 'Expired Event List',
+    to: '/expired-event-list',
+    icon: 'ri-file-list-line',
+  },
+];
 const websiteSetupSubmenu = [
   {
     title: 'General Settings',
@@ -194,13 +206,18 @@ const websiteSetupSubmenu = [
       to: '/venue',
     }"
   />
-  <VerticalNavLink
+  <VerticalNavGroup
     :item="{
-      title: 'Event List',
-      icon: 'ri-file-list-line',
-      to: '/event-list',
+      title: 'Event',
+      icon: 'ri-file-list-line', // Settings icon from Remix Icon
     }"
-  />
+  >
+  <VerticalNavLink
+      v-for="(submenuItem, index) in EventSubmenu"
+      :key="index"
+      :item="submenuItem"
+    />
+  </VerticalNavGroup>
   <VerticalNavLink
     :item="{
       title: 'News & Articles',
