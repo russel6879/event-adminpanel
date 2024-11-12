@@ -25,11 +25,7 @@ const websiteSetupSubmenu = [
     to: '/website-setup/seo',
     icon: 'ri-search-line',
   },
-  {
-    title: 'Social Media Links',
-    to: '/website-setup/social-media',
-    icon: 'ri-links-line',
-  },
+ 
   {
     title: 'Custom Scripts',
     to: '/website-setup/custom-scripts',
@@ -185,13 +181,13 @@ const websiteSetupSubmenu = [
     }"
   /> -->
 
-  <VerticalNavLink
+  <!-- <VerticalNavLink
     :item="{
       title: 'Account Settings',
       icon: 'ri-user-settings-line',
       to: '/account-settings',
     }"
-  />
+  /> -->
   <VerticalNavLink
     :item="{
       title: 'Category',
