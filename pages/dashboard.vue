@@ -33,7 +33,7 @@ const newProject = {
 </script>
 
 <template>
-  <VRow class="match-height">
+  <VRow class="match-height d-none">
     <VCol
       cols="12"
       md="4"

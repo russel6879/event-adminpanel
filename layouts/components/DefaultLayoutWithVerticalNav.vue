@@ -20,12 +20,12 @@ import UserProfile from '@/layouts/components/UserProfile.vue'
           <VIcon icon="ri-menu-line" />
         </IconBtn>
 
-        <!-- 👉 Search -->
+<!--      
         <div
           class="d-flex align-center cursor-pointer"
           style="user-select: none;"
         >
-          <!-- 👉 Search Trigger button -->
+       
           <IconBtn>
             <VIcon icon="ri-search-line" />
           </IconBtn>
@@ -34,22 +34,22 @@ import UserProfile from '@/layouts/components/UserProfile.vue'
             <span class="me-3">Search</span>
             <span class="meta-key">&#8984;K</span>
           </span>
-        </div>
+        </div> -->
 
         <VSpacer />
 
-        <IconBtn
+        <!-- <IconBtn
           class="me-2"
           href="https://github.com/themeselection/materio-vuetify-nuxtjs-admin-template-free"
           target="_blank"
           rel="noopener noreferrer"
         >
           <VIcon icon="ri-github-fill" />
-        </IconBtn>
+        </IconBtn> -->
 
-        <IconBtn class="me-2">
+        <!-- <IconBtn class="me-2">
           <VIcon icon="ri-notification-line" />
-        </IconBtn>
+        </IconBtn> -->
 
         <NavbarThemeSwitcher class="me-2" />
 
@@ -69,9 +69,9 @@ import UserProfile from '@/layouts/components/UserProfile.vue'
         />
         <!-- eslint-enable -->
 
-        <h1 class="font-weight-medium leading-normal text-xl text-uppercase">
+        <!-- <h1 class="font-weight-medium leading-normal text-xl text-uppercase">
           Materio
-        </h1>
+        </h1> -->
       </NuxtLink>
 
       <IconBtn

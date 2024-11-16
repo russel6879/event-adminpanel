@@ -9,13 +9,13 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      titleTemplate: '%s - NuxtJS Admin Template',
-      title: 'Materio',
+      titleTemplate: '%s -  Latest News &amp; Updates on Exhibitions and Events',
+      title: 'Expo Gazette',
 
       link: [{
         rel: 'icon',
         type: 'image/x-icon',
-        href: '/favicon.ico',
+        href: '/favicon.png',
       }],
     },
   },

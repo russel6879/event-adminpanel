@@ -38,12 +38,12 @@
               </VListItemAction>
             </template>
 
-            <VListItemTitle class="font-weight-semibold">John Doe</VListItemTitle>
+            <!-- <VListItemTitle class="font-weight-semibold">John Doe</VListItemTitle> -->
             <VListItemSubtitle>Admin</VListItemSubtitle>
           </VListItem>
           <VDivider class="my-2" />
 
-          <VListItem link>
+          <!-- <VListItem link>
             <template #prepend>
               <VIcon class="me-2" icon="ri-user-line" size="22" />
             </template>
@@ -69,7 +69,7 @@
               <VIcon class="me-2" icon="ri-question-line" size="22" />
             </template>
             <VListItemTitle>FAQ</VListItemTitle>
-          </VListItem>
+          </VListItem> -->
 
           <VDivider class="my-2" />
 

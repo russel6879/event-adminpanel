@@ -50,14 +50,14 @@ definePageMeta({ layout: 'blank' });
           </div>
         </template>
 
-        <VCardTitle class="font-weight-semibold text-2xl text-uppercase">
+        <!-- <VCardTitle class="font-weight-semibold text-2xl text-uppercase">
           Materio
-        </VCardTitle>
+        </VCardTitle> -->
       </VCardItem>
 
       <VCardText class="pt-2">
         <h5 class="text-h5 font-weight-semibold mb-1">
-          Welcome to Materio! 👋🏻
+          Welcome ! 👋🏻
         </h5>
         <p class="mb-0">
           Please sign-in to your account and start the adventure
@@ -94,12 +94,12 @@ definePageMeta({ layout: 'blank' });
                   label="Remember me"
                 />
 
-                <a
+                <!-- <a
                   class="ms-2 mb-1"
                   href="javascript:void(0)"
                 >
                   Forgot Password?
-                </a>
+                </a> -->
               </div>
 
               <!-- login button -->
@@ -112,7 +112,7 @@ definePageMeta({ layout: 'blank' });
             </VCol>
 
             <!-- create account -->
-            <VCol
+            <!-- <VCol
               cols="12"
               class="text-center text-base"
             >
@@ -123,21 +123,21 @@ definePageMeta({ layout: 'blank' });
               >
                 Create an account
               </NuxtLink>
-            </VCol>
+            </VCol> -->
 
-            <VCol
+            <!-- <VCol
               cols="12"
               class="d-flex align-center"
             >
               <VDivider />
               <span class="mx-4">or</span>
               <VDivider />
-            </VCol>
+            </VCol> -->
 
             <!-- auth providers -->
             <VCol
               cols="12"
-              class="text-center"
+              class="text-center d-none"
             >
               <AuthProvider />
             </VCol>
