@@ -22,6 +22,14 @@
                 class="mb-4"
               />
 
+              <!-- Meta Keywords Field -->
+              <VTextField
+                v-model="seoSettings.metaKeywords"
+                label="Meta Keywords"
+                placeholder="Enter Meta Keywords"
+                class="mb-4"
+              />
+
               <!-- Icon Upload Field -->
               <VFileInput
                 label="Upload Favicon/Icon"
@@ -49,6 +57,7 @@ const { $config } = useNuxtApp();
 const seoSettings = ref({
   metaTitle: '',
   metaDescription: '',
+  metaKeywords: '',  // Added field for meta keywords
   icon: null
 });
 const iconPreview = ref(null);
@@ -64,6 +73,7 @@ const fetchSettings = async () => {
     const seoData = settings.seo_settings || {};
     seoSettings.value.metaTitle = seoData.metaTitle || '';
     seoSettings.value.metaDescription = seoData.metaDescription || '';
+    seoSettings.value.metaKeywords = seoData.metaKeywords || '';  // Load metaKeywords
     formData.value.seoIcon = seoData.icon || '';
     iconPreview.value = baseURL + seoData.icon;
   } catch (error) {
@@ -96,6 +106,7 @@ const saveSettings = async (section) => {
         value: {
           metaTitle: seoSettings.value.metaTitle,
           metaDescription: seoSettings.value.metaDescription,
+          metaKeywords: seoSettings.value.metaKeywords,  // Include metaKeywords
           icon: formData.value.seoIcon
         }
       };
