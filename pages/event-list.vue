@@ -118,7 +118,7 @@
         <v-card-actions class="d-flex justify-end">
           <v-btn color="primary" text @click="updateStatus('active')">Active</v-btn>
           <v-btn color="warning" text @click="updateStatus('inactive')">Inactive</v-btn>
-          <v-btn color="error" text @click="updateStatus('rejected')">Reject</v-btn>
+       
         </v-card-actions>
         <v-divider></v-divider>
         <v-card-actions>
@@ -171,9 +171,7 @@ const updateStatus = async (status) => {
       case 'inactive':
         statusValue = 'inactive';
         break;
-      case 'rejected':
-        statusValue = 'rejected';
-        break;
+
     }
 
     try {
@@ -216,21 +214,28 @@ const openSlugDialog = (event) => {
   newSlug.value = event.slug; // Pre-fill with the current slug
   slugDialog.value = true; // Open the dialog
 };
-const deleteEvent = async (eventId) => {
-  confirmDialog({
-    title: 'Confirm Delete',
-    message: 'Are you sure you want to delete this event?',
-    confirm: async () => {
-      try {
-        await eventService.deleteEvent(eventId);
-        fetchEvents();
-      } catch (error) {
-        console.error('Error deleting event:', error);
-      }
-    },
-  });
-};
+const deleteEvent = async (id) => {
+  try {
+    const result = await useNuxtApp().$swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    });
 
+    if (result.isConfirmed) {
+      await eventService.deleteEvent(id);
+      await fetchEvents(); // Refresh the list
+      useNuxtApp().$swal.fire('Deleted!', 'Your event has been deleted.', 'success');
+    }
+  } catch (error) {
+    console.error('Error deleting event:', error);
+    useNuxtApp().$swal.fire('Error!', 'Failed to delete the event.', 'error');
+  }
+};
 const editEvent = (event) => {
   const modal = $refs.modal;
   modal.openModal(event); // Open the modal with the event data

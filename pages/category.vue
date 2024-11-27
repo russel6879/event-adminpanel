@@ -71,10 +71,35 @@ const editCategory = async (category) => {
 
 const deleteCategory = async (categoryId) => {
   try {
-    await categoryService.deleteCategory(categoryId);
-    fetchCategories();
+    const result = await useNuxtApp().$swal.fire({
+      title: 'Are you sure?',
+      text: "This action cannot be undone!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'Cancel',
+    });
+
+    if (result.isConfirmed) {
+      await categoryService.deleteCategory(categoryId);
+      await useNuxtApp().$swal.fire({
+        title: 'Deleted!',
+        text: 'The category has been deleted.',
+        icon: 'success',
+        timer: 1500,
+      });
+      fetchCategories(); // Refresh the categories after successful deletion
+    }
   } catch (error) {
     console.error('Error deleting category:', error);
+    await useNuxtApp().$swal.fire({
+      title: 'Error!',
+      text: 'Something went wrong while deleting the category.',
+      icon: 'error',
+      timer: 1500,
+    });
   }
 };
 

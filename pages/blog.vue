@@ -76,10 +76,35 @@ const editBlog = async (blog) => {
 
 const deleteBlog = async (blogId) => {
   try {
-    await blogService.deleteBlog(blogId);
-    fetchBlogs();
+    const result = await useNuxtApp().$swal.fire({
+      title: 'Are you sure?',
+      text: "Do you really want to delete this blog? This action cannot be undone.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'Cancel',
+    });
+
+    if (result.isConfirmed) {
+      await blogService.deleteBlog(blogId);
+      await useNuxtApp().$swal.fire({
+        title: 'Deleted!',
+        text: 'The blog has been successfully deleted.',
+        icon: 'success',
+        timer: 1500,
+      });
+      fetchBlogs(); // Refresh the blog list after successful deletion
+    }
   } catch (error) {
     console.error('Error deleting blog:', error);
+    await useNuxtApp().$swal.fire({
+      title: 'Error!',
+      text: 'An error occurred while deleting the blog. Please try again.',
+      icon: 'error',
+      timer: 1500,
+    });
   }
 };
 

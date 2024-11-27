@@ -91,10 +91,24 @@ const editVenue = async (venue) => {
 
 const deleteVenue = async (venueId) => {
   try {
-    await venueService.deleteVenue(venueId);
-    fetchVenues();
+    const result = await useNuxtApp().$swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    });
+
+    if (result.isConfirmed) {
+      await venueService.deleteVenue(venueId);
+      fetchVenues();
+      useNuxtApp().$swal.fire('Deleted!', 'Venue has been deleted.', 'success');
+    }
   } catch (error) {
     console.error('Error deleting venue:', error);
+    useNuxtApp().$swal.fire('Error!', 'Failed to delete the venue.', 'error');
   }
 };
 
@@ -200,7 +214,7 @@ const resetForm = () => {
                 :headers="headers"
               >
                 <template v-slot:item.country="{ item }">
-                  {{ item.country }}
+                  {{ item.country?.name || 'N/A' }}
                 </template>
 
                 <template v-slot:item.venueName="{ item }">
@@ -212,7 +226,8 @@ const resetForm = () => {
                 </template>
 
                 <template v-slot:item.googleMapLink="{ item }">
-                  <a :href="item.google_map_link" target="_blank">{{ item.google_map_link }}</a>
+                  <a :href="item.google_map_link" target="_blank"> {{ item.google_map_link.slice(0, 50) }}{{ item.google_map_link.length > 50 ? '...' : '' }}
+                  </a>
                 </template>
 
                 <template v-slot:item.actions="{ item }">
