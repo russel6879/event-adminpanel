@@ -239,6 +239,7 @@ const fetchEventDetails = async () => {
     const countryId= event.country
    
     formData.value.country = parseInt(countryId); // Ensure `event.country` is the ID
+    await fetchCategories(); 
 
        // Convert category IDs to category objects
        const categoryIds = Array.isArray(event.category) ? event.category : JSON.parse(event.category);
