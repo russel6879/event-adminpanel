@@ -12,7 +12,7 @@ const status = ref(false);
 const categories = ref([]);
 const isEdit = ref(false);
 const editCategoryId = ref(null);
-
+const admin = ref(null);
 const formRef = ref(null);
 
 const headers = [

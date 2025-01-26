@@ -235,7 +235,7 @@ const { $config } = useNuxtApp();
 const bannerImagePreview = ref(null);
 const logoPreview = ref('');
 const footerLogoPreview = ref('');
-
+const admin = ref(null);
 // Home Page Section
 const sliderImages = ref([]);
 

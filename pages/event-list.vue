@@ -139,6 +139,7 @@ const currentEvent = ref(null); // To store the current event data for status up
 const slugDialog = ref(false);
 const newSlug = ref('');
 const events = ref([]);
+const admin = ref(null);
 const search = ref('');
 const headers = [
   { title: 'Title', value: 'title' },

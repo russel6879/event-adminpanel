@@ -19,7 +19,7 @@ const editorKey = ref(0);
 const blogs = ref([]);
 const isEdit = ref(false);
 const editBlogId = ref(null);
-
+const admin = ref(null);
 const headers = [
   { title: 'Title', value: 'title' },
   { title: 'Status', value: 'status' },

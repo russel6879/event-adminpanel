@@ -53,7 +53,7 @@
 import { ref, onMounted } from 'vue';
 import settingsService from '~/services/settingsService';
 const { $config } = useNuxtApp();
-
+const admin = ref(null);
 const seoSettings = ref({
   metaTitle: '',
   metaDescription: '',
