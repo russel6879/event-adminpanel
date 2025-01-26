@@ -25,10 +25,15 @@ const tabs = [
     tab: 'notification',
   },
 ]
+
+onMounted(() => {
+  admin.value = localStorage.getItem('admin')
+})
+
 </script>
 
 <template>
-  <div>
+  <div v-if="admin=='supergazette@gmail.com'">
     <VTabs
       v-model="activeTab"
       show-arrows

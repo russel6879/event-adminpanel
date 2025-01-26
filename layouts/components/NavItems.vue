@@ -32,6 +32,16 @@ const websiteSetupSubmenu = [
     icon: 'ri-code-s-slash-line',
   },
 ];
+
+// Define state
+const admin = ref(null)
+
+// Read from localStorage only after component is mounted (client-side)
+onMounted(() => {
+  admin.value = localStorage.getItem('admin')
+})
+
+
 </script>
 
 <template>
@@ -188,6 +198,16 @@ const websiteSetupSubmenu = [
       to: '/account-settings',
     }"
   /> -->
+ <div v-if="admin=='editorexpogaz@gmail.com'">
+  <VerticalNavLink
+    :item="{
+      title: 'Venue',
+      icon: 'ri-focus-3-line',
+      to: '/venue',
+    }"
+  />
+ </div>
+ <div v-else>
   <VerticalNavLink
     :item="{
       title: 'Category',
@@ -214,6 +234,7 @@ const websiteSetupSubmenu = [
       :item="submenuItem"
     />
   </VerticalNavGroup>
+  
   <VerticalNavLink
     :item="{
       title: 'News & Articles',
@@ -236,6 +257,8 @@ const websiteSetupSubmenu = [
       :item="submenuItem"
     />
   </VerticalNavGroup>
+  
+ </div>
   <!-- <VerticalNavLink
     :item="{
       title: 'Login',

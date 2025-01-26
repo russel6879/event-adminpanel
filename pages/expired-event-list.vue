@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="admin=='supergazette@gmail.com'">
     <VRow>
       <VCol cols="12" md="10">
         <VCard title="" class="mt-4">
@@ -159,8 +159,11 @@ const fetchExpiredEvents = async () => {
   }
 };
 
-onMounted(fetchExpiredEvents);
 
+onMounted(() => {
+  fetchExpiredEvents();
+  admin.value = localStorage.getItem('admin');
+});
 const updateStatus = async (status) => {
   if (currentEvent.value) {
     let statusValue;

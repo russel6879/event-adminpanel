@@ -35,8 +35,11 @@ const fetchBlogs = async () => {
   }
 };
 
-onMounted(fetchBlogs);
 
+onMounted(() => {
+  fetchBlogs();
+  admin.value = localStorage.getItem('admin');
+});
 const submitForm = async () => {
   try {
     const blogData = {
@@ -132,10 +135,12 @@ const handleFileUpload = (event) => {
     reader.readAsDataURL(file);
   }
 };
+
+
 </script>
 
 <template>
-  <div>
+  <div v-if="admin=='supergazette@gmail.com'">
     <VRow>
       <VCol cols="12" md="10">
         <VCard title="Create Blog (News & Article)">

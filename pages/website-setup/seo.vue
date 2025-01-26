@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="admin=='supergazette@gmail.com'">
     <!-- SEO Settings Section -->
     <VCard title="SEO Settings" class="mt-4">
       <VCardText>
@@ -123,6 +123,7 @@ const saveSettings = async (section) => {
 // Fetch settings on component mount
 onMounted(() => {
   fetchSettings();
+  admin.value = localStorage.getItem('admin');
 });
 </script>
 

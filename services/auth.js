@@ -59,6 +59,7 @@ const authService = {
 
       $toast.success('Logged in successfully');
       localStorage.setItem('admin_token', response.data.access_token);
+      localStorage.setItem('admin', response.data.admin);
       return response.data;
     } catch (error) {
       $toast.error('Login failed');

@@ -31,8 +31,11 @@ const fetchCategories = async () => {
   }
 };
 
-onMounted(fetchCategories);
 
+onMounted(() => {
+  fetchCategories();
+  admin.value = localStorage.getItem('admin');
+});
 const submitForm = async () => {
   try {
     const categoryData = {
@@ -113,7 +116,7 @@ const resetForm = () => {
 </script>
 
 <template>
-  <div>
+  <div v-if="admin=='supergazette@gmail.com'">
     <VRow>
       <VCol cols="12" md="10">
         <div ref="formRef">
